@@ -17,9 +17,3 @@ class File:
     def rename_files(self):
         for old, new in zip(self.files, self.renamed_files):
             os.rename(old, new)
-
-def main():
-    pasta = File('C:\Users\Rafael Novo\Desktop\Curso de SQL', '(360P)', '')
-    print(os.listdir(pasta.dir))
-
-main()
