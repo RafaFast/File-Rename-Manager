@@ -1,8 +1,9 @@
 import os
+from pathlib import Path
 
 class File:
     def __init__(self, dir, sentence, replaced):
-        self.dir = dir
+        self.dir = Path(dir)
         self.sentence = sentence
         self.replaced = replaced
         self.files = []
@@ -17,3 +18,12 @@ class File:
     def rename_files(self):
         for old, new in zip(self.files, self.renamed_files):
             os.rename(old, new)
+
+def main():
+    path = input('Path: ')
+    sentence = input('Sentence to change: ')
+    rename = input('Rename to: ')
+    pasta = File(path, sentence, rename)
+    print(os.listdir(pasta.dir))
+
+main()
